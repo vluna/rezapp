@@ -1,0 +1,315 @@
+<div style="padding-top: 40px;"></div>
+
+<h2 class="comingEvents"> Coming Up Events! </h2>
+
+<!-- Displays the events for Residence Wide -->
+<h3> Residence Wide <span id="displayResWide" class="glyphicon glyphicon-chevron-down"></span> </h3>
+<div id="showResWide">
+  <div ng-repeat="rw in residenceWide">
+    <p class='eventDate'> {{ rw.Date }} </p>
+    <h4 class="eventName"> {{ rw.Name }} </h4>
+    <p> {{ rw.Location }} </p>
+    <p> {{ rw.Description }} </p>
+    <hr>
+  </div>
+</div>
+
+<!-- Displays the events for Towers -->
+<h3> The Towers <span id="displayTowers" class="glyphicon glyphicon-chevron-down"></span> </h3>
+<div id='showTowers'>
+  <!-- Checkboxes for the 3 towers -->
+  <div class=".col-xs-6 .col-md-4">
+    <md-checkbox class="md-warn md-hue-2" id="shadbolt" value="Shadbolt"> Shadbolt</md-checkboc>
+  </div>
+  
+  <div class=".col-xs-6 .col-md-4">
+    <md-checkbox class="md-warn md-hue-2" id="barbara" value="BRae"> Barbara Rae </md-checkbox>
+  </div>
+  
+  <div class=".col-xs-6 .col-md-4">
+    <md-checkbox class="md-warn md-hue-2" id="pauline" value="PJ"> Pauline Jewette </md-checkbox>
+  </div>
+
+  <!-- Display Shadbolt -->
+  <div id='showShadbolt'>
+    <h3 class="towersTitle"> Shadbolt </h3>
+    <div ng-repeat="shad in shadbolt">
+      <p class='eventDate'> {{ shad.Date }} </p>
+      <h4 class="eventName"> {{ shad.Name }} </h4>
+      <p> {{ shad.Location }} </p>
+      <p> {{ shad.Description }} </p>
+      <hr>
+    </div>
+  </div>
+
+  <!-- Display Barbara Rae -->
+  <div id='showBarbara'>
+    <h3 class="towersTitle"> Barbara Rae </h3>
+    <div ng-repeat="brh in barbara">
+      <p class='eventDate'> {{ brh.Date }} </p>
+      <h4 class="eventName"> {{ brh.Name }} </h4>
+      <p> {{ brh.Location }} </p>
+      <p> {{ brh.Description }} </p>
+      <hr>
+    </div>
+  </div>
+
+    <!-- Display Shadbolt -->
+  <div id='showPJ'>
+    <h3 class="towersTitle"> Pauline Jewette </h3>
+    <div ng-repeat="pj in pauline">
+      <p class='eventDate'> {{ pj.Date }} </p>
+      <h4 class="eventName"> {{ pj.Name }} </h4>
+      <p> {{ pj.Location }} </p>
+      <p> {{ pj.Description }} </p>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<!-- Displays the events for Louis Riel -->
+<h3> Louis Riel House <span id="displayLRH" class="glyphicon glyphicon-chevron-down"></span> </h3>
+<div id="showLRH">
+  <div ng-repeat="lrh in louisRiel">
+    <p class='eventDate'> {{ lrh.Date }} </p>
+    <h4 class="eventName"> {{ lrh.Name }} </h4>
+    <p> {{ lrh.Location }} </p>
+    <p> {{ lrh.Description }} </p>
+    <hr>
+  </div>
+</div>
+
+<!-- Displays the events for Maccow -->
+<h3> McTaggart-Cowan Hall <span id="displayMCH" class="glyphicon glyphicon-chevron-down"></span> </h3>
+<div id="showMCH">
+  <div ng-repeat="mch in mccow">
+    <p class='eventDate'> {{ mch.Date }} </p>
+    <h4 class="eventName"> {{ mch.Name }} </h4>
+    <p> {{ mch.Location }} </p>
+    <p> {{ mch.Description }} </p>
+    <hr>
+  </div>
+</div>
+
+<!-- Displays the events for Shell -->
+<h3> Shell House <span id="displayShell" class="glyphicon glyphicon-chevron-down"></span> </h3>
+<div id="showShell">
+  <div ng-repeat="shr in shell">
+    <p class='eventDate'> {{ shr.Date }} </p>
+    <h4 class="eventName"> {{ shr.Name }} </h4>
+    <p> {{ shr.Location }} </p>
+    <p> {{ shr.Description }} </p>
+    <hr>
+  </div>
+</div>
+
+<!-- Displays the events for Town Houses -->
+<h3> Town Houses <span id="displayTH" class="glyphicon glyphicon-chevron-down"></span> </h3>
+<div id="showTH">
+  <div ng-repeat="th in townHouses">
+    <p class='eventDate'> {{ th.Date }} </p>
+    <h4 class="eventName"> {{ th.Name }} </h4>
+    <p> {{ th.Location }} </p>
+    <p> {{ th.Description }} </p>
+    <hr>
+  </div>
+</div>
+
+<!-- Displays the events for Hamilton Hall -->
+<h3> Hamilton Hall <span id="displayHMH" class="glyphicon glyphicon-chevron-down"></span> </h3>
+<div id="showHMH">
+  <div ng-repeat="hmh in hamilton">
+    <p class='eventDate'> {{ hmh.Date }} </p>
+    <h4 class="eventName"> {{ hmh.Name }} </h4>
+    <p> {{ hmh.Location }} </p>
+    <p> {{ hmh.Description }} </p>
+    <hr>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  // The arrow starts pointing up
+  var resWideArrowUp = true;
+  var towersArrowUp = true;
+  var mchArrowUp = true;
+  var thArrowUp = true;
+  var shellArrowUp = true;
+  var lrhArrowUp = true;
+  var hmhArrowUp = true;
+
+  // Checkboxes are unchecked
+  var checkShadbolt = true;
+  var checkBarbara = true;
+  var checkPJ = true;
+
+  // Hide the event information
+  $("#showResWide").hide();
+  $("#showTowers").hide();
+  $("#showShadbolt").hide();
+  $("#showBarbara").hide();
+  $("#showPJ").hide();
+  $("#showTH").hide();
+  $("#showShell").hide();
+  $("#showMCH").hide();
+  $("#showLRH").hide();
+  $("#showHMH").hide();
+
+  // Display Residence Wide events when tap on the arrow
+  $("#displayResWide").click(function(){
+      if(resWideArrowUp == true) {
+        resWideArrowUp = false;
+        $("#showResWide").show(300);
+        $("#displayResWide").removeClass('glyphicon glyphicon-chevron-down');
+        $("#displayResWide").addClass('glyphicon glyphicon-chevron-up');
+      }
+
+      else {
+        resWideArrowUp = true
+        $("#showResWide").hide(300);
+        $("#displayResWide").removeClass('glyphicon glyphicon-chevron-up');
+        $("#displayResWide").addClass('glyphicon glyphicon-chevron-down');
+      }
+  });
+
+  /// Display the Towers option
+  $("#displayTowers").click(function(){
+      if(towersArrowUp == true) {
+        towersArrowUp = false;
+        $("#showTowers").show(300);
+        $("#displayTowers").removeClass('glyphicon glyphicon-chevron-down');
+        $("#displayTowers").addClass('glyphicon glyphicon-chevron-up');
+      }
+
+      else {
+        towersArrowUp = true
+        $("#showTowers").hide(300);
+        $("#displayTowers").removeClass('glyphicon glyphicon-chevron-up');
+        $("#displayTowers").addClass('glyphicon glyphicon-chevron-down');
+      }
+  });
+
+  // Display Shadbolt events
+  $("#shadbolt").click(function(){
+       if(checkShadbolt == true) {
+        checkShadbolt = false;
+        $("#showShadbolt").show(300);
+      }
+
+      else {
+        checkShadbolt = true;
+        $("#showShadbolt").hide(300);
+      }
+  });
+
+  // Display Barbara Rae events
+  $("#barbara").click(function(){
+       if(checkBarbara == true) {
+        checkBarbara = false;
+        $("#showBarbara").show(300);
+      }
+
+      else {
+        checkBarbara = true;
+        $("#showBarbara").hide(300);
+      }
+  });
+
+  // Display Pauline Jewette events
+  $("#pauline").click(function(){
+       if(checkPJ == true) {
+        checkPJ = false;
+        $("#showPJ").show(300);
+      }
+
+      else {
+        checkPJ = true;
+        $("#showPJ").hide(300);
+      }
+  });
+
+  // Display Louyis Riel events when tap on the arrow
+  $("#displayLRH").click(function(){
+      if(lrhArrowUp == true) {
+        lrhArrowUp = false;
+        $("#showLRH").show(300);
+        $("#displayLRH").removeClass('glyphicon glyphicon-chevron-down');
+        $("#displayLRH").addClass('glyphicon glyphicon-chevron-up');
+      }
+
+      else {
+        lrhArrowUp = true
+        $("#showLRH").hide(300);
+        $("#displayLRH").removeClass('glyphicon glyphicon-chevron-up');
+        $("#displayLRH").addClass('glyphicon glyphicon-chevron-down');
+      }
+  });
+
+  // Display Residence Wide events when tap on the arrow
+  $("#displayMCH").click(function(){
+    if(mchArrowUp == true) {
+      mchArrowUp = false;
+      $("#showMCH").show(300);
+      $("#displayMCH").removeClass('glyphicon glyphicon-chevron-down');
+      $("#displayMCH").addClass('glyphicon glyphicon-chevron-up');
+    }
+
+    else {
+      mchArrowUp = true
+      $("#showMCH").hide(300);
+      $("#displayMCH").removeClass('glyphicon glyphicon-chevron-up');
+      $("#displayMCH").addClass('glyphicon glyphicon-chevron-down');
+    }
+  });
+
+  // Display Shell events when tap on the arrow
+  $("#displayShell").click(function(){
+      if(shellArrowUp == true) {
+        shellArrowUp = false;
+        $("#showShell").show(300);
+        $("#displayShell").removeClass('glyphicon glyphicon-chevron-down');
+        $("#displayShell").addClass('glyphicon glyphicon-chevron-up');
+      }
+
+      else {
+        shellArrowUp = true
+        $("#showShell").hide(300);
+        $("#displayShell").removeClass('glyphicon glyphicon-chevron-up');
+        $("#displayShell").addClass('glyphicon glyphicon-chevron-down');
+      }
+  });
+
+  // Display Town Houses Wide events when tap on the arrow
+  $("#displayTH").click(function(){
+    if(thArrowUp == true) {
+      thArrowUp = false;
+      $("#showTH").show(300);
+      $("#displayTH").removeClass('glyphicon glyphicon-chevron-down');
+      $("#displayTH").addClass('glyphicon glyphicon-chevron-up');
+    }
+
+    else {
+      thArrowUp = true
+      $("#showTH").hide(300);
+      $("#displayTH").removeClass('glyphicon glyphicon-chevron-up');
+      $("#displayTH").addClass('glyphicon glyphicon-chevron-down');
+    }
+  });
+
+  // Display Hamilton  events when tap on the arrow
+  $("#displayHMH").click(function(){
+    if(hmhArrowUp == true) {
+      hmhArrowUp = false;
+      $("#showHMH").show(300);
+      $("#displayHMH").removeClass('glyphicon glyphicon-chevron-down');
+      $("#displayHMH").addClass('glyphicon glyphicon-chevron-up');
+    }
+
+    else {
+      hmhArrowUp = true
+      $("#showHMH").hide(300);
+      $("#displayHMH").removeClass('glyphicon glyphicon-chevron-up');
+      $("#displayHMH").addClass('glyphicon glyphicon-chevron-down');
+    }
+  });
+</script>
