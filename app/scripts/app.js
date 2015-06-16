@@ -30,6 +30,18 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/announcement', {
+        templateUrl: 'views/announcement.html',
+        controller: 'AnnouncementCtrl'
+      })
+      .when('/contact', {
+        templateUrl: 'views/contact.html',
+        controller: 'ContactCtrl'
+      })
+      .when('/todo', {
+        templateUrl: 'views/todo.html',
+        controller: 'TodoCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

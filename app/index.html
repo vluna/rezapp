@@ -28,7 +28,7 @@
         <md-toolbar>
           <div class="md-toolbar-tools">
             <md-button class="md-icon-button" aria-label="Settings">
-              <md-icon md-svg-icon id="g" class="glyphicon glyphicon-th-list" ng-click="toggleLeft()" hide-gt-md style="font-size: 20px;"></md-icon>
+              <md-icon md-svg-icon class="glyphicon glyphicon-th-list" ng-click="toggleLeft()" hide-gt-md style="font-size: 20px;"></md-icon>
             </md-button>
             <h2>
               <span>ResLife</span>
@@ -38,22 +38,23 @@
         </md-toolbar>
       </md-content>
 
-      <div layout="column" style="height:500px;">
-        <section layout="row" flex>
-          <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+      <div layout="column" style="height:auto;">
+        <section layout="row" flex ng-controller="LeftCtrl">
+          <md-sidenav style="z-index: 9999;" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
             <md-toolbar class="md-theme-indigo">
-              <h1 class="md-toolbar-tools">Sidenav Left</h1>
+              <h1 class="md-toolbar-tools"> Menu <i class="glyphicon glyphicon-remove closeIcon"  ng-click="close()"></i></h1>
             </md-toolbar>
-            <md-content layout-padding ng-controller="LeftCtrl">
-              <md-button ng-click="close()" class="md-primary" hide-gt-md>
-                Close Sidenav Left
-              </md-button>
+            <md-content layout-padding>
+              <a ng-href="#/main"> <h4 ng-click="close()" class="menuList"> <i class="glyphicon glyphicon-list-alt menuIcon"></i> Events </h4></a>
+              <a ng-href="#/announcement"><h4 ng-click="close()" class="menuList"> <i class="glyphicon glyphicon-bullhorn menuIcon"></i> Announcements </h4></a>
+              <a ng-href="#/about"><h4 ng-click="close()" class="menuList"> <i class="glyphicon glyphicon-calendar menuIcon"></i> Calendar </h4></a>
+              <a ng-href="#/todo"><h4 ng-click="close()" class="menuList"> <i class="glyphicon glyphicon-ok menuIcon"></i> To-Do List </h4></a>
+              <a ng-href="#/contact"><h4 ng-click="close()" class="menuList"> <i class="glyphicon glyphicon-earphone menuIcon"></i> ResLife Contact </h4></a>
             </md-content>
           </md-sidenav>  
-          <div ng-view=""></div>
         </section>
+        <div ng-view=""></div>
       </div>
-
     </div>
 
 
@@ -89,6 +90,8 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/idbwrapper/idbstore.js"></script>
+    <script src="bower_components/angularjs-indexedDB/src/indexeddb.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -96,6 +99,9 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/announcement.js"></script>
+        <script src="scripts/controllers/contact.js"></script>
+        <script src="scripts/controllers/todo.js"></script>
         <!-- endbuild -->
 </body>
 </html>

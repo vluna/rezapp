@@ -1,0 +1,32 @@
+<div style="padding-top: 50px;"></div>
+
+<h2 class="comingEvents"> To-do List</h2>
+<md-content layout-padding layout="row" layout-sm="column">
+	</md-content>
+  		<md-content layout-padding>
+    		<form name="userForm" ng-submit="addItem()">
+      			<div layout layout-sm="column">
+        			<md-input-container flex>
+          				<label>New Item</label>
+          				<input ng-model="itemname">
+        			</md-input-container>
+        			<input type="submit" class="glyphicon glyphicon-plus"></input>
+        		</div>
+        	</form>
+
+        	<md-input-container flex>
+       			<label>Seach Item</label>
+        		<input ng-model="search">
+        	</md-input-container>
+    		<table ng-repeat="item in items | filter:search | orderBy:'text'">
+			    <tr>
+			        <td width="100px">{{item.text}}</td>
+			        <td width="150px">{{item.timeStamp}}</td>
+			        <td>
+			            <a class="btn btn-mini btn-danger" ng-click="deleteItem(item.id)"><i class="icon-remove icon-white"></i></a>
+			        </td> 
+			    </tr> 
+			</table>
+      	</md-content>
+    </md-content>
+</md-content>

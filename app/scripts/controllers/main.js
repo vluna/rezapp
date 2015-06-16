@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('testApp')
-  .controller('MainCtrl', function ($scope, $http) {
+  .controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
   	$scope.events; // Store the response from the php script
 
   	// Varibales that will hold the Events according to the location
@@ -15,11 +15,17 @@ angular.module('testApp')
   	$scope.hamilton = [];
   	$scope.residenceWide = [];
 
+  	console.log("test");
   	// Get the information for the php script
-  	$http.get("http://www.victorluna.ca/connection.php")
+  	$http.get("http://victorluna.ca/residence/events/info/events_connection.php")
     .success(function (response) {
     	// If succeed, store the response in a variable
-    	$scope.events = response.records;
+    	$scope.events = response;
+
+    	// Debugging ppurposes, check all the data of the  json file
+    	for(var i = 0; i < $scope.events.length; i++) {
+    		console.log($scope.events[i]); 
+    	}
 
     	// Variable that control the array objects
     	var j = -1;
@@ -145,4 +151,4 @@ angular.module('testApp')
     						   Description: "Aww, there are no events" }];
     	}
     });
-  });
+  }]);
