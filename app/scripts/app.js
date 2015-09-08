@@ -18,7 +18,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngMaterial'
+    'ngMaterial',
+    'ui.calendar' 
   ])
   .config(function ($routeProvider, $mdThemingProvider) {
     $routeProvider
@@ -42,45 +43,14 @@ angular
         templateUrl: 'views/todo.html',
         controller: 'TodoCtrl'
       })
+      .when('/calendar', {
+        templateUrl: 'views/calendar.html',
+        controller: 'CalendarCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
-        $mdThemingProvider.theme('default')
+    $mdThemingProvider.theme('default')
     .primaryPalette('red', {'default': '900'})
-    .accentPalette('orange');
+    .accentPalette('green', {'default': '600' });
   })
-  .controller(function ($timeout, $mdSidenav, $mdUtil, $log) {
-
-        $scope.toggleLeft = buildToggler('left');
-    $scope.toggleRight = buildToggler('right');
-    /**
-     * Build handler to open/close a SideNav; when animation finishes
-     * report completion in console
-     */
-    function buildToggler(navID) {
-      var debounceFn =  $mdUtil.debounce(function(){
-            $mdSidenav(navID)
-              .toggle()
-              .then(function () {
-                $log.debug("toggle " + navID + " is done");
-              });
-          },300);
-      return debounceFn;
-    }
-  })
-  .controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
-    $scope.close = function () {
-      $mdSidenav('left').close()
-        .then(function () {
-          $log.debug("close LEFT is done");
-        });
-    };
-  })
-  .controller('RightCtrl', function ($scope, $timeout, $mdSidenav, $log) {
-    $scope.close = function () {
-      $mdSidenav('right').close()
-        .then(function () {
-          $log.debug("close RIGHT is done");
-        });
-    };
-  });

@@ -10,6 +10,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -23,7 +24,7 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
+<!--     <div class="container">
       <md-content class="navbar-default navbar-fixed-top">
         <md-toolbar>
           <div class="md-toolbar-tools">
@@ -45,9 +46,9 @@
               <h1 class="md-toolbar-tools"> Menu <i class="glyphicon glyphicon-remove closeIcon"  ng-click="close()"></i></h1>
             </md-toolbar>
             <md-content layout-padding>
-              <a ng-href="#/main"> <h4 ng-click="close()" class="menuList"> <i class="glyphicon glyphicon-list-alt menuIcon"></i> Events </h4></a>
-              <a ng-href="#/announcement"><h4 ng-click="close()" class="menuList"> <i class="glyphicon glyphicon-bullhorn menuIcon"></i> Announcements </h4></a>
-              <a ng-href="#/about"><h4 ng-click="close()" class="menuList"> <i class="glyphicon glyphicon-calendar menuIcon"></i> Calendar </h4></a>
+              <a ng-href="#/main"> <h4 class="menuList"> <i class="glyphicon glyphicon-list-alt menuIcon"></i> Events </h4></a>
+              <a ng-href="#/announcement" ng-click="close()"><h4 class="menuList"> <i class="glyphicon glyphicon-bullhorn menuIcon"></i> Announcements </h4></a>
+              <a ng-href="#/about"><h4 onClick="close()" class="menuList"> <i class="glyphicon glyphicon-calendar menuIcon"></i> Calendar </h4></a>
               <a ng-href="#/todo"><h4 ng-click="close()" class="menuList"> <i class="glyphicon glyphicon-ok menuIcon"></i> To-Do List </h4></a>
               <a ng-href="#/contact"><h4 ng-click="close()" class="menuList"> <i class="glyphicon glyphicon-earphone menuIcon"></i> ResLife Contact </h4></a>
             </md-content>
@@ -55,8 +56,32 @@
         </section>
         <div ng-view=""></div>
       </div>
+    </div> -->
+    <div class="navbar-default navbar-fixed-top">
+      <div class="navbar-header text-center">
+        <h4>ResLife</h4> 
+      </div>
     </div>
 
+      <div ng-view=""></div>
+      <div class="navBorder">
+        <div class="navbar-inverse navbar-fixed-bottom">
+          <div class="row">
+            <div class="col-border col-xs-3 text-center" id="navActive">
+              <a ng-href="#/"><i class="glyphicon glyphicon-list-alt menuIcon" style="padding-left: 12px;"></i></a>
+            </div>
+            <div class="col-border col-xs-3 text-center" id="navActive2">
+              <a ng-href="#/announcement"><i class="glyphicon glyphicon-bullhorn menuIcon"></i></a>
+            </div>
+            <div class="col-border col-xs-3 text-center" id="navActive3">
+              <a ng-href="#/calendar"><i class="glyphicon glyphicon-calendar menuIcon"></i></a>
+            </div>
+            <div class="col-border col-xs-3 text-center" id="navActive4">
+              <a ng-href="#/contact"><i class="glyphicon glyphicon-earphone menuIcon" style="padding-right: 12px;"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -92,6 +117,9 @@
     <script src="bower_components/angular-material/angular-material.js"></script>
     <script src="bower_components/idbwrapper/idbstore.js"></script>
     <script src="bower_components/angularjs-indexedDB/src/indexeddb.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/fullcalendar/dist/fullcalendar.js"></script>
+    <script src="bower_components/angular-ui-calendar/src/calendar.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -102,6 +130,38 @@
         <script src="scripts/controllers/announcement.js"></script>
         <script src="scripts/controllers/contact.js"></script>
         <script src="scripts/controllers/todo.js"></script>
+        <script src="scripts/controllers/calendar.js"></script>
         <!-- endbuild -->
+        <script type="text/javascript">
+          $("#navActive").click(function(){
+            document.getElementById("navActive").style.background="#4C88BF";
+            document.getElementById("navActive2").style.background="#a9a9a9";
+            document.getElementById("navActive3").style.background="#a9a9a9";
+            document.getElementById("navActive4").style.background="#a9a9a9";
+          })
+
+          $("#navActive2").click(function(){
+            document.getElementById("navActive").style.background="#a9a9a9";
+            document.getElementById("navActive2").style.background="#4C88BF";
+            document.getElementById("navActive3").style.background="#a9a9a9";
+            document.getElementById("navActive4").style.background="#a9a9a9";
+
+          })
+
+          $("#navActive3").click(function(){
+            document.getElementById("navActive").style.background="#a9a9a9";
+            document.getElementById("navActive2").style.background="#a9a9a9";
+            document.getElementById("navActive3").style.background="#4C88BF";
+            document.getElementById("navActive4").style.background="#a9a9a9";
+          })
+
+          $("#navActive4").click(function(){
+            document.getElementById("navActive").style.background="#a9a9a9";
+            document.getElementById("navActive2").style.background="#a9a9a9";
+            document.getElementById("navActive3").style.background="#a9a9a9";
+            document.getElementById("navActive4").style.background="#4C88BF";
+          })
+
+        </script>
 </body>
 </html>

@@ -15,7 +15,6 @@ angular.module('testApp')
   	$scope.hamilton = [];
   	$scope.residenceWide = [];
 
-  	console.log("test");
   	// Get the information for the php script
   	$http.get("http://victorluna.ca/residence/events/info/events_connection.php")
     .success(function (response) {
@@ -43,7 +42,7 @@ angular.module('testApp')
     		// Assign the location to its respective variable
     		// Residence Wide
     		if($scope.events[i].Location == 'Residence Wide') {
-    			$scope.residenceWide[m+1] = $scope.events[i];
+    			$scope.residenceWide[r+1] = $scope.events[i];
     			r = r + 1;
     		}
 

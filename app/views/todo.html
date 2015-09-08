@@ -1,6 +1,23 @@
-<div style="padding-top: 50px;"></div>
+<h2 class="comingEvents"> Reminders</h2>
+<form name="userForm" ng-submit="addItem()">
+            <div >
+                  <label>New Item</label>
+                  <input ng-model="itemname">
+              <input type="submit">Submit</input>
+            </div>
+          </form>
 
-<h2 class="comingEvents"> To-do List</h2>
+            <label>Seach Item</label>
+            <input ng-model="search">
+        <table ng-repeat="item in items | filter:search | orderBy:'text'">
+          <tr>
+              <td width="100px">{{item.text}}</td>
+              <td>
+                  <a class="btn btn-danger" ng-click="deleteItem(item.id)"><i class="icon-remove icon-white"></i></a>
+              </td> 
+          </tr> 
+      </table>
+
 <md-content layout-padding layout="row" layout-sm="column">
 	</md-content>
   		<md-content layout-padding>
@@ -10,7 +27,7 @@
           				<label>New Item</label>
           				<input ng-model="itemname">
         			</md-input-container>
-        			<input type="submit" class="glyphicon glyphicon-plus"></input>
+              <md-button class="md-raised md-accent">Submit</md-button>
         		</div>
         	</form>
 
@@ -21,12 +38,13 @@
     		<table ng-repeat="item in items | filter:search | orderBy:'text'">
 			    <tr>
 			        <td width="100px">{{item.text}}</td>
-			        <td width="150px">{{item.timeStamp}}</td>
 			        <td>
-			            <a class="btn btn-mini btn-danger" ng-click="deleteItem(item.id)"><i class="icon-remove icon-white"></i></a>
+			            <a class="btn btn-danger" ng-click="deleteItem(item.id)"><i class="icon-remove icon-white"></i></a>
 			        </td> 
 			    </tr> 
 			</table>
       	</md-content>
     </md-content>
 </md-content>
+
+<div style="padding-top: 60px;"></div>
